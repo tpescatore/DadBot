@@ -14,7 +14,7 @@ function respond() {
   }
   else if(request.text && botRegexKya.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(cool());
+    postMessage("B-b-baka!");
     this.res.end();
   }
   else {
