@@ -6,11 +6,11 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexKya = /(.|)*kya!~/;
   
-  var waifuPhrases = [ "https://pbs.twimg.com/media/B8YdqjxIQAAU87L.jpg", "It's not like I l-like you or anything...", "B-B-baka!" ]
+  var waifuPhrases = [ "https://pbs.twimg.com/media/B8YdqjxIQAAU87L.jpg", "It's not like I l-like you or anything...", "B-B-baka!", "My senpai is the best!" ]
 
   if(request.text && botRegexKya.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(waifuPhrases[getRandomInt(0,waifuPhrases.length-1)]);
+    postMessage(waifuPhrases[getRandomInt(0,waifuPhrases.length)]);
     this.res.end();
   }
   else {
