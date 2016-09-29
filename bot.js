@@ -10,7 +10,7 @@ function respond() {
 
   if(request.text && botRegexKya.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(waifuPhrases[0]);
+    postMessage(getRandomInt(0,waifuPhrases.length-1).toString();
     this.res.end();
   }
   else {
