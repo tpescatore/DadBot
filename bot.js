@@ -5,10 +5,12 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexKya = /(.|)*kya!~/;
+  
+  var waifuPhrases = [ "B-b-baka!", "It's not like I l-like you or anything...", "My senpai is the best!", "https://pbs.twimg.com/media/B8YdqjxIQAAU87L.jpg" ]
 
   if(request.text && botRegexKya.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("B-b-baka!");
+    postMessage(waifuPhrases[getRandomInt(0,waifuPhrases.size-1)]);
     this.res.end();
   }
   else {
