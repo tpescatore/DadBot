@@ -15,7 +15,7 @@ function respond() {
                      "I m-made you tendies _-kun. I hope you like them...", "To me, you have all the goodboy points in the world.",
                      "Hitler-sama did nothing wrong."]
 
-  if(request.text && botRegexKya.test(request.text)) {
+  if(request.text && botRegexKya.test(request.text) && (request.text.indexOf("@") == -1)) {
     this.res.writeHead(200);
     postMessage(getReturnString(waifuPhrases[getRandomInt(0,waifuPhrases.length)], request.name));
     this.res.end();
