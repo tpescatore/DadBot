@@ -4,7 +4,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexKya = /(.|)*(k|K)ya!~/;
+      botRegexKya = /(.|)*(k|K)ya!~/; botStromKya = /(S|s)trom(K|k)ya!~/;
   
   var waifuPhrases = [ "It's not like I l-like you or anything...", "_-kun is so moe!", "Do you think I'm kawaii, _?",
                       "B-B-baka!", "_-senpai is the best!", "But isn't that... lewd?", "Kemy-kun is sugoi, but not as sugoi as _-senpai!", "Noooo!",
@@ -18,6 +18,11 @@ function respond() {
   if(request.text && botRegexKya.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase())) {
     this.res.writeHead(200);
     postMessage(getReturnString(waifuPhrases[getRandomInt(0,waifuPhrases.length)], request.name));
+    this.res.end();
+  }
+  else if(request.text && botStromKya.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase())) {
+    this.res.writeHead(200);
+    postMessage("#SigEpStrom is so sugoi!");
     this.res.end();
   }
   else {
