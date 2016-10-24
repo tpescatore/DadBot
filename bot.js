@@ -9,7 +9,7 @@ function respond() {
 
   if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad")) {
     this.res.writeHead(200);
-    postMessage("#SigEpStrom is so sugoi!");
+    postMessage(getResponseString(request.text, botRegexDad));
     this.res.end();
   }
   else {
@@ -52,6 +52,12 @@ function postMessage(response) {
     console.log('timeout posting message '  + JSON.stringify(err));
   });
   botReq.end(JSON.stringify(body));
+}
+
+function getResponseString(text, dadRegex) {
+  var match = dadRegex.exec(text);
+  matchingString = match[0];
+  return matchingString;
 }
 
 
