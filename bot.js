@@ -9,7 +9,7 @@ function respond() {
 
   if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad")) {
     this.res.writeHead(200);
-    postMessage(getResponseString(request.text, botRegexDad));
+    postMessage("Hi, " + getResponseString(request.text, botRegexDad) + ". I'm Dad!");
     this.res.end();
   }
   else {
