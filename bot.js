@@ -56,8 +56,15 @@ function postMessage(response) {
 
 function getResponseString(text, dadRegex) {
   var match = dadRegex.exec(text);
-  matchingString = match[0];
-  return matchingString.substring(4, matchingString.length);
+  var matchingString = match[0];
+  var punctCheck = matchingString.substring(matchingString.length-1, matchingString.length);
+  if(punctCheck == "." || punctCheck == "!" || punctCheck == "?"){
+    return matchingString.substring(4, matchingString.length-1);
+  }
+  else
+  {
+    return matchingString.substring(4, matchingString.length);
+  }  
 }
 
 
