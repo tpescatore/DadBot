@@ -7,7 +7,7 @@ function respond() {
       botRegexDad = /(.|)I'm([a-zA-Z]|,| )*(\.|\?|\!)/; 
 
 
-  if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad")) {
+  if(request.text && botRegexDad.test(request.text)) {
     this.res.writeHead(200);
     postMessage("#SigEpStrom is so sugoi!");
     this.res.end();
