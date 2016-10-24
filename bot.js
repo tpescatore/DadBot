@@ -4,10 +4,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexDad = /(.|)I'm([a-zA-Z]|,| )*(\.|\?|\!)/; 
+      botRegexDad = /(.|)I'm([a-zA-Z]|,| )*(\.|\?|\!|)/; 
 
 
-  if(request.text && botRegexDad.test(request.text)) {
+  if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad")) {
     this.res.writeHead(200);
     postMessage("#SigEpStrom is so sugoi!");
     this.res.end();
