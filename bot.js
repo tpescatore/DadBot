@@ -7,7 +7,7 @@ function respond() {
       botRegexDad = /^(I|i)'?m([a-zA-Z"-]|,|'| )*(\.|\?|\!|)/; 
 
 
-  if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad")) {
+  if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad") && textCheck()) {
     this.res.writeHead(200);
     postMessage("Hi, " + getResponseString(request.text, botRegexDad) + ". I'm Dad!");
     this.res.end();
@@ -65,6 +65,18 @@ function getResponseString(text, dadRegex) {
   else
   {
     return matchingString.substring(checkPoint+2, matchingString.length);
+  }  
+}
+
+function textCheck(){
+  var match = dadRegex.exec(text);
+  var matchingString = match[0];
+  var checkPoint = matchingString.indexOf("m");
+  if(matchingString.substring(checkPoint+1,checkPoint+2) == " "){
+    return 1;
+  }
+  else{
+    return 0;
   }  
 }
 
