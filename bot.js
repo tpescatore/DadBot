@@ -4,7 +4,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexDad = /^(I|i)'?m([0-9a-zA-Z\%\"\-]|,|'| )*(\.|\?|\!|)/; 
+      botRegexDad = /^(I|i)'?m([0-9a-zA-Z"-]|,|'|%| )*(\.|\?|\!|)/; 
 
 
   if(request.text && botRegexDad.test(request.text) && (request.text.indexOf("@") == -1) && (request.name.toUpperCase() != "GroupMe".toUpperCase()) && (request.name != "Dad") && textCheck(request.text, botRegexDad) == 1) {
