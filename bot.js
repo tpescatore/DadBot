@@ -17,10 +17,10 @@ function respond() {
   }
   else if(request.name == "Mom" && getRandomInt(0,1) == 1){
     this.res.writeHead(200);
-    
+    postMessage(dadToMom[getRandomInt(0,dadToMom.length)]);
     this.res.end();
   }  
-  else {
+  else{
     console.log("Nothing happened");
     this.res.writeHead(200);
     this.res.end();
@@ -74,7 +74,7 @@ function getResponseString(text, dadRegex) {
   {
     return matchingString.substring(checkPoint+2, matchingString.length);
   }  
-}
+} 
 
 function textCheck(text, dadRegex){
   var match = dadRegex.exec(text);
