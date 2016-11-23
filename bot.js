@@ -15,7 +15,7 @@ function respond() {
     postMessage("Hi, " + getResponseString(request.text, botRegexDad) + ". I'm Dad!");
     this.res.end();
   }
-  else if(request.txt && request.name == "Mom"){
+  else if(request.txt && request.name == "Mum" && getRandomInt(0,1) == 1){
     this.res.writeHead(200);
     postMessage(dadToMom[getRandomInt(0,dadToMom.length)]);
     this.res.end();
